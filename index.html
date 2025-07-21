@@ -233,13 +233,45 @@
         </h2>
         <div class="projects__content" style="text-align: center;">
           <p>
-            <a href="./assets/downloads/Mohd_ISR_KPIBudget.docx" download class="btn btn--med btn--theme dynamicBgClr">
+            <a href="#" onclick="downloadFile(event)" class="btn btn--med btn--theme dynamicBgClr">
               Click here to download the KPI and Budget Tools document
             </a>
           </p>
         </div>
       </div>
     </section>
+    <section id="team-leadership-hr-tools" class="projects sec-pad">
+      <div class="main-container">
+        <h2 class="heading heading-sec heading-sec__mb-bg">
+          <span class="heading-sec__main">Team Leadership &amp; HR Tools</span>
+        </h2>
+        <div class="projects__content" style="text-align: center;">
+          <p>
+            <a href="./assets/downloads/Mohd_Team_Leadership_HR_Tools.docx" download class="btn btn--med btn--theme dynamicBgClr">
+              Click here to download Team Leadership &amp; HR Tools
+            </a>
+          </p>
+        </div>
+      </div>
+    </section>
+    <script>
+      function downloadFile(event) {
+        event.preventDefault();
+        const url = 'https://raw.githubusercontent.com/mohd-abraar/Portfolio/main/assets/downloads/Mohd_ISR_KPIBudget.docx';
+        const fileName = 'Mohd_ISR_KPIBudget.docx';
+        fetch(url)
+          .then(response => response.blob())
+          .then(blob => {
+            const link = document.createElement('a');
+            link.href = window.URL.createObjectURL(blob);
+            link.download = fileName;
+            document.body.appendChild(link);
+            link.click();
+            link.remove();
+          })
+          .catch(() => alert('Failed to download file.'));
+      }
+    </script>
  
     <footer class="main-footer">
       <div class="main-container">
